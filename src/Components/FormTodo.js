@@ -5,6 +5,8 @@ import AddIcon from "@material-ui/icons/Add";
 import { Fab } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
+import { blue } from "@material-ui/core/colors";
+
 
 function FormTodo(props) {
   const [input, setInput] = useState("");
@@ -20,7 +22,9 @@ function FormTodo(props) {
     root: {
       '& > *': {
         margin: theme.spacing(1),
+        backgroundColor: '#8AABFF'
       },
+  
     },
     
   }));
@@ -38,11 +42,9 @@ function FormTodo(props) {
             value={input}
             onChange={(e) => setInput(e.target.value)}
           ></input>
-
-          <Fab
+          <Fab 
             onClick={addTodo}
             type="submit"
-            color="primary"
             aria-label="add"
           >
             <AddIcon />
