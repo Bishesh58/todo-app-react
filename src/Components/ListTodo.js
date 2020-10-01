@@ -7,6 +7,8 @@ import IconButton from "@material-ui/core/IconButton";
 import EditIcon from "@material-ui/icons/Edit";
 import { Fab } from "@material-ui/core";
 import {teal,deepOr} from '@material-ui/core/colors';
+import db from '../Firebase'
+import Firebase from 'firebase';
 
 function ListTodo({ todos }) {
   const removeTodo = (e) => {};
@@ -40,21 +42,13 @@ const theme = createMuiTheme({
 
             <div className="listTodos">
               
-                <li>{todo} </li>
+                <li>{todo.todo} </li>
 
                 <div className={classes.root}>
                 <Fab color="primary" aria-label="edit">
                   <EditIcon />
                 </Fab>
-                {/* <IconButton
-                onClick={removeTodo}
-                aria-label="delete"
-                color="secondary"
-              >
-                <DeleteIcon fontSize="large" />
-              </IconButton> */}
-
-                <Fab color="secondary" aria-label="delete">
+                <Fab color="secondary" aria-label="delete" onClick={(e)=> db.collection('todos').doc(todo.id).delete()}>
                   <DeleteIcon />
                 </Fab>
              </div>

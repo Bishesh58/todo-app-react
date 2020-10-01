@@ -17,7 +17,7 @@ function FormTodo(props) {
 
   useEffect(() => {
     db.collection('todos').orderBy('timestamp', 'desc').onSnapshot(snapshot =>{
-      setTodos(snapshot.docs.map(doc => doc.data().todos))
+      setTodos(snapshot.docs.map(doc => ({id: doc.id, todo: doc.data().todos})))
     })
   }, [])
 
