@@ -20,7 +20,7 @@ function FormTodo(props) {
       setTodos(snapshot.docs.map(doc => ({id: doc.id, todo: doc.data().todos})))
     })
   }, [])
-
+  console.log("This is Form Todo",todos)
   const addTodo = (e) => {
     e.preventDefault();
 

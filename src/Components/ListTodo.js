@@ -11,12 +11,11 @@ import db from "../Firebase";
 import Firebase from "firebase";
 
 function ListTodo({ todos }) {
-  
   const useStyles = makeStyles((theme) => ({
     root: {
       "& > *": {
         margin: theme.spacing(1),
-      }
+      },
     },
     paper: {
       width: 400,
@@ -40,24 +39,30 @@ function ListTodo({ todos }) {
   });
 
   const [open, setOpen] = useState(false);
- 
-  const [input, setInput] = useState('');
-
-  const updateTodo = ()=> {
-    db.collection('todos').doc(todos.id).set({
-      todo: input
-    },{merge: true})
+  const [input, setInput] = useState("");
+  console.log( db.collection("todos").doc(todos))
+  const updateTodo = () => {
+    
+    db.collection("todos").doc(todos.id).set(
+      {
+        todo: input,
+      },
+      { merge: true }
+    );
     setOpen(false);
-  }
-console.log(todos.todo);
+  };
+
   return (
     <>
       <div>
         <Modal open={open} onClose={(e) => setOpen(false)}>
           <div className={classes.paper}>
             <h1>I'm a Model</h1>
-            
-            <input value={input} placeholder={todos.todo} onChange={e => setInput(e.target.value)}/>
+            <input
+              value={input}
+              placeholder={todos}
+              onChange={(e) => setInput(e.target.value)}
+            />
             <button onClick={updateTodo}>Update </button>
           </div>
         </Modal>
