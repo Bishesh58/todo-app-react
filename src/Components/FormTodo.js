@@ -46,12 +46,12 @@ function FormTodo(props) {
   return (
     <div className="formTodo">
       <div className="header">
-        <h3>To Do List</h3>
+        <h3>Any task to do?</h3>
       </div>
       <div className="form">
         <form className={classes.root}>
           <input
-            placeholder="Add a todo item" maxlength = "30" 
+            placeholder="Add a todo item" 
             value={input}
             onChange={(e) => setInput(e.target.value)}
           ></input>
