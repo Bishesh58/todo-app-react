@@ -4,8 +4,6 @@ import "./FormTodo.css";
 import AddIcon from "@material-ui/icons/Add";
 import { Fab } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
-import DeleteIcon from '@material-ui/icons/Delete';
-import { blue } from "@material-ui/core/colors";
 import db from '../Firebase'
 import firebase from 'firebase';
 
@@ -20,7 +18,7 @@ function FormTodo(props) {
       setTodos(snapshot.docs.map(doc => ({id: doc.id, todo: doc.data().todos})))
     })
   }, [])
-  console.log("This is Form Todo",todos)
+  
   const addTodo = (e) => {
     e.preventDefault();
 
@@ -37,21 +35,19 @@ function FormTodo(props) {
         margin: theme.spacing(1),
         backgroundColor: '#8AABFF'
       },
-  
     },
-    
   }));
   const classes = useStyles();
 
   return (
     <div className="formTodo">
       <div className="header">
-        <h3>Any task to do?</h3>
+        <h3>My ToDo Lists</h3>
       </div>
       <div className="form">
         <form className={classes.root}>
-          <input
-            placeholder="Add a todo item" 
+          <input 
+            placeholder="Enter your task" 
             value={input}
             onChange={(e) => setInput(e.target.value)}
           ></input>
