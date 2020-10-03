@@ -24,11 +24,14 @@ function ListTodo({ todos }) {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState('');
   const [currentTodo, setCurrentTodo] = useState();
+  const [currentId, setCurrentId] = useState();
   
   const updateTodo = () => {
     
-    db.collection("todos").doc().set({
-      todo: input},{ merge: true }
+   
+
+    db.collection("todos").doc(currentId).set({
+      todos: input},{ merge: true }
     );
     setOpen(false);
     setInput("");
@@ -64,6 +67,7 @@ function ListTodo({ todos }) {
                       onClick={(e) =>{
                         setOpen(true)
                         setCurrentTodo(todo.todo)
+                        setCurrentId(todo.id)
                       } }
                     >
                       <EditIcon fontSize="small" />
