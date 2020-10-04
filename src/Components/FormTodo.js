@@ -42,7 +42,7 @@ function FormTodo(props) {
   return (
     <div className="formTodo">
       <div className="header">
-        <h3>My ToDo Lists</h3>
+        <h3>ToDo App</h3>
       </div>
       <div className="form">
         <form className={classes.root}>

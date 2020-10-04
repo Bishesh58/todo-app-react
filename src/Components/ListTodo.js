@@ -19,7 +19,6 @@ function ListTodo({ todos }) {
       position: 'absolute',
       width: '78%',
       backgroundColor: '#accbee',
-      
       borderRadius:'20px',
       outline: 'none',
       boxShadow: theme.shadows[5],
@@ -46,9 +45,6 @@ function ListTodo({ todos }) {
   const [currentId, setCurrentId] = useState();
   
   const updateTodo = () => {
-    
-   
-
     db.collection("todos").doc(currentId).set({
       todos: input},{ merge: true }
     );
