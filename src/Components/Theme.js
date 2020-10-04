@@ -10,9 +10,7 @@ const theme = createMuiTheme({
     secondary: {
       main: red[800],
     },
-    updateButton:{
-      main: blue[800],
-    }
+   
   },
 });
 

@@ -8,6 +8,7 @@ import { Modal } from "@material-ui/core";
 import Button from '@material-ui/core/Button';
 import db from "../Firebase";
 import Firebase from "firebase";
+import { blue, lightBlue } from "@material-ui/core/colors";
 
 
 function ListTodo({ todos }) {
@@ -16,15 +17,26 @@ function ListTodo({ todos }) {
     paper: {
       display:'flex',
       position: 'absolute',
-      width: '70%',
+      width: '78%',
       backgroundColor: '#accbee',
-      border: "2px solid #000",
+      
       borderRadius:'20px',
       outline: 'none',
       boxShadow: theme.shadows[5],
-      padding: theme.spacing(4, 5, 4,),
+      boxShadow: '2px 3px 5px black',
+      padding: theme.spacing(4, 4, 4,),
+      paddingRight: '2px',
       margin: theme.spacing(12,3,1)
-    }
+    },
+    root: {
+      borderRadius: '25px',
+      color: 'grey',
+      padding: '0 10px',
+      '&:hover': {
+        backgroundColor: '#597b98',
+        color: 'white'
+      }
+    },
   }));
   const classes = useStyles();
 
@@ -55,7 +67,7 @@ function ListTodo({ todos }) {
               onChange={(e) => setInput(e.target.value)}
                placeholder={currentTodo}
             />
-            <Button onClick={updateTodo} >Update </Button>
+            <Button onClick={updateTodo} className={classes.root} >Update </Button>
           </div>
         </Modal>
       </div>
