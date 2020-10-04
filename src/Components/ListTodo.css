@@ -26,3 +26,7 @@ li {
   align-items: flex-end;
   margin-left: auto;
 }
+
+.modal__input{
+  width: 80%;
+}

@@ -5,19 +5,26 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import IconButton from "@material-ui/core/IconButton";
 import EditIcon from "@material-ui/icons/Edit";
 import { Modal } from "@material-ui/core";
+import Button from '@material-ui/core/Button';
 import db from "../Firebase";
 import Firebase from "firebase";
 
 
 function ListTodo({ todos }) {
+  
   const useStyles = makeStyles((theme) => ({
     paper: {
-      width: 400,
-      backgroundColor: theme.palette.background.paper,
+      display:'flex',
+      position: 'absolute',
+      width: '70%',
+      backgroundColor: '#accbee',
       border: "2px solid #000",
-      boxShadow: theme.shadows[2],
-      padding: theme.spacing(2, 4, 3),
-    },
+      borderRadius:'20px',
+      outline: 'none',
+      boxShadow: theme.shadows[5],
+      padding: theme.spacing(4, 5, 4,),
+      margin: theme.spacing(12,3,1)
+    }
   }));
   const classes = useStyles();
 
@@ -41,14 +48,14 @@ function ListTodo({ todos }) {
   return (
     <>
       <div>
-        <Modal open={open} onClose={(e) => setOpen(false)}>
+        <Modal  open={open} onClose={(e) => setOpen(false)}>
           <div className={classes.paper}>
-            <input 
+            <input className="modal__input"
               value={input}
               onChange={(e) => setInput(e.target.value)}
                placeholder={currentTodo}
             />
-            <button onClick={updateTodo}>Update </button>
+            <Button onClick={updateTodo} >Update </Button>
           </div>
         </Modal>
       </div>
