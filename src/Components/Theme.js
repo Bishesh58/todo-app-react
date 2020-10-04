@@ -1,6 +1,6 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 import green from '@material-ui/core/colors/green';
-import { red } from '@material-ui/core/colors';
+import { blue, red } from '@material-ui/core/colors';
 
 const theme = createMuiTheme({
   palette: {
@@ -10,6 +10,9 @@ const theme = createMuiTheme({
     secondary: {
       main: red[800],
     },
+    updateButton:{
+      main: blue[800],
+    }
   },
 });
 
