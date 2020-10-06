@@ -59,6 +59,7 @@ function ListTodo({ todos }) {
         <Modal  open={open} onClose={(e) => setOpen(false)}>
           <div className={classes.paper}>
             <input className="modal__input"
+           
               value={input}
               onChange={(e) => setInput(e.target.value)}
                placeholder={currentTodo}

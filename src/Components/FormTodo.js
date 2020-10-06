@@ -53,7 +53,7 @@ function FormTodo(props) {
           ></input>
           <Fab 
             onClick={addTodo}
-            disabled={!input}
+            disabled={!input.trim()}
             type="submit"
             aria-label="add"
           >
